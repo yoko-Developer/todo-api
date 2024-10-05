@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
-    public TaskEntity find() {
-        return taskRepository.select()
+    public TaskEntity find(Long taskId) {
+        return taskRepository.select(taskId)
                 .map(record -> new TaskEntity(record.getId(), record.getTitle()))
                 .orElseThrow(() -> new IllegalArgumentException("TODO")); //TODO
     }
