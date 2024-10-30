@@ -1,4 +1,4 @@
-package com.example.todo_api.Controller.task;
+package com.example.todo_api.controller.task;
 
 import com.example.todo_api.service.task.TaskService;
 import com.example.todoapi.controller.TasksApi;
