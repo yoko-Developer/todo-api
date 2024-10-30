@@ -1,4 +1,4 @@
-package com.example.todo_api.Controller;
+package com.example.todo_api.controller;
 
 import com.example.todoapi.controller.HealthApi;
 import org.springframework.http.ResponseEntity;

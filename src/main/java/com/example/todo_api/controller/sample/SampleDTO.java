@@ -1,4 +1,4 @@
-package com.example.todo_api.Controller.sample;
+package com.example.todo_api.controller.sample;
 
 import lombok.Value;
 
