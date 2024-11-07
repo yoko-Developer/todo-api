@@ -11,9 +11,28 @@ tags:
     description: タスク関連のAPI
 
 paths:
+  /health:
+    get:
+      tags:
+      - opts
+      responses:
+        '200':
+          description:  OK
+  /tasks/:
+    post:
+      summary: "タスク作成"
+      description: "タスクを新規作成します"
+      operationId: "createTask" #コード生成された後Javaのコントローラのハンドラーメソッドの名前に使われる
+      tags:
+        - tasks
+      responses:
+          201:
+            description: "Created"
   # 任意の値がtaskIdという変数で参照できる
   /tasks/{taskId}:
     get:
+      summary: "タスク取得"
+      description: "指定されたIDのタスクを1件取得"
       tags:
         - tasks
       operationId: showTask
