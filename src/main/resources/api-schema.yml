@@ -28,6 +28,10 @@ paths:
       responses:
           201:
             description: "Created"
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/TaskDTO"
   # 任意の値がtaskIdという変数で参照できる
   /tasks/{taskId}:
     get:
