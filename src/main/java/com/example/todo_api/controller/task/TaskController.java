@@ -17,22 +17,13 @@ public class TaskController implements TasksApi {
 
     @Override
     public ResponseEntity<TaskDTO> createTask(TaskForm form) {
-        var dto = new TaskDTO();
-        dto.setId(99L);
-        dto.setTitle(form.getTitle()); // もらってきたタイトルをそのまま返す
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(dto);
-    }
-
-    @Override
-    public ResponseEntity<TaskDTO> showTask(Long taskId) {
-        var entity = taskService.find(taskId);
+        var entity = taskService.create(form.getTitle());
 
         var dto = new TaskDTO();
         dto.setId(entity.getId());
         dto.setTitle(entity.getTitle());
-
-        return ResponseEntity.ok(dto);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(dto);
     }
 }
