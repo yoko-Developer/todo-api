@@ -3,6 +3,6 @@ import lombok.Value;
 
 @Value
 public class TaskRecord {
-    long id;
+    Long id;
     String title;
 }
