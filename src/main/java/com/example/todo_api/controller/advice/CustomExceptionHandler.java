@@ -14,6 +14,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import static org.springframework.http.ResponseEntity.status;
+import static org.springframework.web.servlet.function.ServerResponse.from;
 
 @RestControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -25,7 +26,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatusCode status,
             WebRequest request
     ) {
-        return ResponseEntity.badRequest().body(new BadRequestError());
+        var error = BadRequestErrorCreator.from(ex);
+        return ResponseEntity.badRequest().body(error);
     }
 
     @ExceptionHandler(TaskEntityNotFoundException.class)
